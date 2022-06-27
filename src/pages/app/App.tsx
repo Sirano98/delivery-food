@@ -8,9 +8,14 @@ import { Dishes } from '../dishes/Dishes';
 import { Restaurans } from '../restaurants/Restaurants';
 import './App.css';
 
+interface CustomizedState {
+    background: string
+}
+
 function App() {
     const location = useLocation();
-    const background = location.state && location.state.background;
+    const state = location.state as CustomizedState;
+    const background = state && state.background;
 
     return (
         <>

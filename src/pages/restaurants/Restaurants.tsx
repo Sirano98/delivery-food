@@ -3,6 +3,7 @@ import { Error } from "../../components/error/Error";
 import List from "../../components/list/List";
 import { Loader } from "../../components/loader/Loader";
 import { RestaurantCard } from "../../components/restaurantCard/RestaurantCard";
+import Slider from "../../components/slider/Slider";
 import { useGetRestaurantsQuery } from "../../services/DeliveryService";
 
 export const Restaurans: FC = () => {
@@ -10,6 +11,7 @@ export const Restaurans: FC = () => {
 
     return (
         <div className="container">
+            <Slider />
             <section className="restaurants">
                 <div className="section-heading">
                     <h2 className="section-title">Restaurants</h2>
