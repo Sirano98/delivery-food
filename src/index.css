@@ -206,6 +206,10 @@ button {
     align-items: center;
 }
 
+.social-link:hover {
+    filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 0.2));
+}
+
 .social-link:not(:last-child) {
     margin-right: 21px;
 }
