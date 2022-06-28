@@ -4,8 +4,8 @@ import { Cart } from '../../components/cart/Cart';
 import { Layout } from '../../components/layout/Layout';
 import { Modal } from '../../components/modal/Modal';
 import { RequireAuth } from '../../hoc/RequireAuth';
-import { DishesPage } from '../dishesPage/DishesPage';
-import { RestauransPage } from '../restaurantsPage/RestaurantsPage';
+import { Dishes } from '../dishes/Dishes';
+import { Restaurans } from '../restaurants/Restaurants';
 import './App.css';
 
 interface CustomizedState {
@@ -21,10 +21,10 @@ function App() {
         <>
             <Routes location={background || location}>
                 <Route path='/' element={<Layout />}>
-                    <Route index element={<RestauransPage />} />
+                    <Route index element={<Restaurans />} />
                     <Route path='menu' element={
                         <RequireAuth>
-                            <DishesPage />
+                            <Dishes />
                         </RequireAuth>
                     } />
                 </Route>
