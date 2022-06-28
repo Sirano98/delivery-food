@@ -5,7 +5,7 @@ import { MenuCard } from "../../components/menuCard/menuCard";
 import { useAppSelector } from "../../hooks/hooks";
 import { useGetMenuQuery } from "../../services/DeliveryService";
 
-export const Dishes: FC = () => {
+export const DishesPage: FC = () => {
     const displayedRestaurant = useAppSelector(state => state.index.displayedRestaurant);
     const { data: menu, isLoading } = useGetMenuQuery(displayedRestaurant?.products || "");
 
