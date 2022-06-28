@@ -6,7 +6,7 @@ import { RestaurantCard } from "../../components/restaurantCard/RestaurantCard";
 import Slider from "../../components/slider/Slider";
 import { useGetRestaurantsQuery } from "../../services/DeliveryService";
 
-export const Restaurans: FC = () => {
+export const RestauransPage: FC = () => {
     const { data: restaurants, isLoading, isError } = useGetRestaurantsQuery("");
 
     return (
