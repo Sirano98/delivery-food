@@ -25,13 +25,30 @@
     background-image: url(../../../public/img/icon/home.svg);
 }
 
+.search-button {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: -3px;
+    left: 9px;
+    border: none;
+    background: transparent url(../../../public/img/icon/search.svg) center no-repeat;
+}
+
+.search-button:hover {
+    background-size: 25px 25px;
+}
+
 .search {
     margin-left: auto;
 }
 
 .input-search {
     width: 300px;
-    background-image: url(../../../public/img/icon/search.svg);
+}
+
+.search-label {
+    position: relative;
 }
 
 .buttons {
