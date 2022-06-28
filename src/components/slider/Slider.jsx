@@ -12,7 +12,10 @@ export default function Slider() {
             slidesPerView={1}
             loop={true}
             grabCursor={true}
-            autoplay={true}
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: false
+            }}
             pagination={{ clickable: true }}
         >
             <SwiperSlide>
