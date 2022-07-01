@@ -265,15 +265,14 @@ button {
     border-color: #ff0000;
 }
 
-.label-auth-error::after {
-    content: "This field cannot be empty";
+.error-message-auth {
     font-size: 13px;
     position: absolute;
-    width: 74%;
-    background: #ffff;
+    width: 80%;
+    background: transparent;
     color: #ff0000;
-    top: -21px;
-    left: 78px;
+    top: -32px;
+    left: 79px;
     animation: showError 1s;
 }
 
@@ -287,6 +286,11 @@ button {
         transform: translateY(0px);
         opacity: 1;
     }
+}
+
+.auth-link {
+    text-decoration: none;
+    color: #1890ff;
 }
 
 .modal-header {

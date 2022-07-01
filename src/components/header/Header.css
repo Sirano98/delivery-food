@@ -111,7 +111,20 @@
     background-repeat: no-repeat;
 }
 
+.button .button-login-svg {
+    width: 27px;
+    height: 20px;
+    background-color: #fff;
+    -webkit-mask: url("../../../public/img/icon/login.svg") no-repeat 50% 50%;
+    mask: url("../../../public/img/icon/login.svg") no-repeat 50% 50%;
+    background-repeat: no-repeat;
+}
+
 .button-primary:hover .button-auth-svg {
+    background-color: #595959;
+}
+
+.button-primary:hover .button-login-svg {
     background-color: #595959;
 }
 

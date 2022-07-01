@@ -8,10 +8,10 @@ interface RequireAuthProps {
 
 export const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
     const location = useLocation();
-    const user = useAppSelector(state => state.auth.login);
+    const email = useAppSelector(state => state.user.userData.email);
 
-    if (!user) {
-        return <Navigate to='/login' state={{ background: "/", from: location.pathname }} replace />
+    if (!email) {
+        return <Navigate to='/signUp' state={{ background: "/", from: location.pathname }} replace />
     }
 
     return children

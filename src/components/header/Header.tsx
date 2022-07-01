@@ -1,16 +1,20 @@
 import { FC } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { deleteLogin } from "../../store/reducers/AuthSlice";
+import { logout } from "../../store/reducers/UserSlice";
+import { getAuth, signOut } from "firebase/auth";
 import "./Header.css"
 
 export const Header: FC = () => {
-    const user = useAppSelector(state => state.auth.login);
+    const email = useAppSelector(state => state.user.userData.email);
     const dispatch = useAppDispatch();
     const location = useLocation();
 
     const handleLogOut = () => {
-        dispatch(deleteLogin())
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            dispatch(logout())
+        })
     }
 
     return (
@@ -24,9 +28,8 @@ export const Header: FC = () => {
                 </label>
                 <div className="buttons">
                     {
-                        user ? (
+                        email ? (
                             <>
-                                <span className="user-name">{user}</span>
                                 <Link className="button button-cart" id="cart-button" to="cart" state={{ background: location }}>
                                     <span className="button-cart-svg"></span>
                                     <span className="button-text">Cart</span>
@@ -37,10 +40,17 @@ export const Header: FC = () => {
                                 </button>
                             </>
                         ) : (
-                            <Link className="button button-primary button-auth" to="login" state={{ background: location }}>
-                                <span className="button-auth-svg"></span>
-                                <span className="button-text">Log in</span>
-                            </Link>
+                            <>
+                                <Link className="button button-primary button-auth" to="login" state={{ background: location }}>
+                                    <span className="button-login-svg"></span>
+                                    <span className="button-text">Log in</span>
+                                </Link>
+
+                                <Link className="button button-primary button-auth" to="signUp" state={{ background: location }}>
+                                    <span className="button-auth-svg"></span>
+                                    <span className="button-text">Sign up</span>
+                                </Link>
+                            </>
                         )
                     }
                 </div>
