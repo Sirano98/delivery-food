@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import "./firebase";
 import './index.css';
 import './normalize.css';
+import { Wrapper } from './hoc/Wrapper';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -15,7 +16,9 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                <App />
+                <Wrapper>
+                    <App />
+                </Wrapper>
             </BrowserRouter>
         </Provider>
     </React.StrictMode>

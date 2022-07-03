@@ -6,6 +6,7 @@ import { Cart } from '../../components/cart/Cart';
 import { Layout } from '../../components/layout/Layout';
 import { Modal } from '../../components/modal/Modal';
 import { RequireAuth } from '../../hoc/RequireAuth';
+import { Wrapper } from '../../hoc/Wrapper';
 import { useAppDispatch } from '../../hooks/hooks';
 import { login, logout } from '../../store/reducers/UserSlice';
 import { DishesPage } from '../dishesPage/DishesPage';
@@ -46,6 +47,7 @@ function App() {
 
     return (
         <>
+            {/* <Wrapper> */}
             <Routes location={background || location}>
                 <Route path='/' element={<Layout />}>
                     <Route index element={<RestauransPage />} />
@@ -75,6 +77,7 @@ function App() {
                     } />
                 </Routes>
             )}
+            {/* </Wrapper> */}
         </>
     );
 }
