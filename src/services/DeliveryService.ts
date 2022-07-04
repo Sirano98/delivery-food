@@ -2,10 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IMenu } from "../models/IMenu";
 import { IRestaurant } from "../models/IRstaurant";
 
+const url = process.env.REACT_APP_DB_URL;
+
 export const deliveryApi = createApi({
     reducerPath: "deliveryApi",
     tagTypes: ["Restaurants", "Menu"],
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/db/" }),
+    baseQuery: fetchBaseQuery({ baseUrl: url }),
     endpoints: build => ({
         getRestaurants: build.query<IRestaurant[], unknown>({
             query: () => "partners.json",
