@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useEffect } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Auth } from '../../components/auth/Auth';
 import { Cart } from '../../components/cart/Cart';
 import { Layout } from '../../components/layout/Layout';
