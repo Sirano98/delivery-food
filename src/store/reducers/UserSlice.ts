@@ -50,6 +50,10 @@ export const userSlice = createSlice({
                     state.loginError = "Try again later for security reasons";
                     break;
 
+                case "auth/email-already-in-use":
+                    state.loginError = "Email already in use";
+                    break;
+
                 case "auth/wrong-password":
                     break;
 

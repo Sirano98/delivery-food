@@ -14,10 +14,13 @@ export const deliveryApi = createApi({
             providesTags: ["Restaurants"]
         }),
         getMenu: build.query<IMenu[], string>({
-            query: (menu: string) => menu,
+            query: (menu: string) => `menus/${menu}`,
             providesTags: ["Menu"]
+        }),
+        getAllMenus: build.query({
+            query: () => "menus.json"
         })
     })
 });
 
-export const { useGetRestaurantsQuery, useGetMenuQuery } = deliveryApi;
+export const { useGetRestaurantsQuery, useGetMenuQuery, useGetAllMenusQuery } = deliveryApi;

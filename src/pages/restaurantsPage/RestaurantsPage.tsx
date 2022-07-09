@@ -16,7 +16,7 @@ export const RestauransPage: FC = () => {
             <section className="restaurants">
                 <div className="section-heading">
                     <h2 className="section-title">Restaurants</h2>
-                    <SearchInput restaurants={restaurants || null} />
+                    <SearchInput />
                 </div>
                 <div className="cards cards-restaurants">
                     {isLoading && <Loader />}

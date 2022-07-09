@@ -10,6 +10,7 @@ import { useAppDispatch } from '../../hooks/hooks';
 import { login, logout } from '../../store/reducers/UserSlice';
 import { DishesPage } from '../dishesPage/DishesPage';
 import { RestauransPage } from '../restaurantsPage/RestaurantsPage';
+import { SearchPage } from '../searchPage/SearchPage';
 import './App.css';
 
 interface CustomizedState {
@@ -52,6 +53,11 @@ function App() {
                     <Route path='menu' element={
                         <RequireAuth>
                             <DishesPage />
+                        </RequireAuth>
+                    } />
+                    <Route path='search-results' element={
+                        <RequireAuth>
+                            <SearchPage />
                         </RequireAuth>
                     } />
                 </Route>

@@ -3,13 +3,15 @@ import { deliveryApi } from '../services/DeliveryService';
 import userSlice from './reducers/UserSlice';
 import cartSlice from './reducers/CartSlice';
 import indexSlice from './reducers/IndexSlice';
+import searchSlice from './reducers/SearchSlice';
 
 export const store = configureStore({
     reducer: {
         [deliveryApi.reducerPath]: deliveryApi.reducer,
         index: indexSlice,
         user: userSlice,
-        cart: cartSlice
+        cart: cartSlice,
+        search: searchSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(deliveryApi.middleware)
 });

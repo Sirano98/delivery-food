@@ -1,6 +1,6 @@
+import { getAuth } from "firebase/auth";
 import { FC, ReactElement } from "react";
 import { Navigate, useLocation } from "react-router-dom"
-import { useAppSelector } from "../hooks/hooks";
 
 interface RequireAuthProps {
     children: ReactElement
@@ -8,9 +8,10 @@ interface RequireAuthProps {
 
 export const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
     const location = useLocation();
-    const email = useAppSelector(state => state.user.userData.email);
+    const auth = getAuth();
+    const user = auth.currentUser;
 
-    if (!email) {
+    if (!user) {
         return <Navigate to='/signUp' state={{ background: "/", from: location.pathname }} replace />
     }
 
