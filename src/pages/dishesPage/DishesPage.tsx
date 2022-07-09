@@ -2,7 +2,6 @@ import { FC } from "react";
 import List from "../../components/list/List";
 import { Loader } from "../../components/loader/Loader";
 import { MenuCard } from "../../components/menuCard/menuCard";
-import { SearchInput } from "../../components/searchInput/SearchInput";
 import { useAppSelector } from "../../hooks/hooks";
 import { useGetMenuQuery } from "../../services/DeliveryService";
 
@@ -21,7 +20,6 @@ export const DishesPage: FC = () => {
                         </div>
                         <div className="price">from {displayedRestaurant?.price} $</div>
                         <div className="category">{displayedRestaurant?.kitchen}</div>
-                        <SearchInput />
                     </div>
                 </div>
                 <div className="cards cards-menu">

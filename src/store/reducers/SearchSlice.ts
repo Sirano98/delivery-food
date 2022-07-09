@@ -1,4 +1,4 @@
-import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IMenu } from "../../models/IMenu";
 
 interface InitialData {
@@ -9,12 +9,16 @@ interface SearchState {
     searchQuery: string;
     data: InitialData | null;
     searchResult: IMenu[];
+    isLoading: boolean;
+    isError: boolean;
 }
 
 const initialState: SearchState = {
     searchQuery: "",
     data: null,
-    searchResult: []
+    searchResult: [],
+    isLoading: true,
+    isError: false
 }
 
 export const searchSlice = createSlice({
@@ -29,16 +33,28 @@ export const searchSlice = createSlice({
         },
         filterData(state) {
 
-            for (let key in state.data) {
+            state.isLoading = true;
+            state.isError = false;
 
-                state.data[key].forEach((elem: IMenu) => {
+            if (state.searchQuery) {
+                for (let key in state.data) {
 
-                    if (elem.name.toLocaleLowerCase().includes(state.searchQuery.toLocaleLowerCase())) {
-                        state.searchResult.push(elem);
-                    }
+                    state.data[key].forEach((elem: IMenu) => {
 
-                });
+                        if (elem.name.toLocaleLowerCase().includes(state.searchQuery.toLocaleLowerCase())) {
+                            state.searchResult.push(elem);
+                        }
 
+                    });
+
+                }
+                state.isLoading = false;
+                state.isError = false;
+
+            } else {
+                state.searchResult = [];
+                state.isLoading = false;
+                state.isError = true;
             }
 
         },

@@ -1,4 +1,5 @@
 import { FC, useEffect } from "react";
+import { Error } from "../../components/error/Error";
 import List from "../../components/list/List";
 import { Loader } from "../../components/loader/Loader";
 import { MenuCard } from "../../components/menuCard/menuCard";
@@ -9,14 +10,12 @@ import { clearSearch, filterData, setData } from "../../store/reducers/SearchSli
 export const SearchPage: FC = () => {
     const { data } = useGetAllMenusQuery("");
     const dispatch = useAppDispatch();
-    const searchResult = useAppSelector(state => state.search.searchResult)
+    const { searchResult, isLoading, isError } = useAppSelector(state => state.search)
 
     useEffect(() => {
         dispatch(setData(data));
         dispatch(filterData());
         return () => {
-            console.log("undo");
-
             dispatch(clearSearch())
         }
     }, [data, dispatch])
@@ -28,12 +27,15 @@ export const SearchPage: FC = () => {
                     <h2 className="section-title restaurant-title">Search results</h2>
                 </div>
                 <div className="cards cards-menu">
+                    {isLoading && <Loader />}
+                    {isError && <p className="error-message">Nothing found</p>}
                     {searchResult.length ?
                         <List
                             items={searchResult}
                             renderItem={(dish) => <MenuCard dish={dish} key={dish.id} />} />
                         :
-                        <Loader />}
+                        null
+                    }
                 </div>
             </section>
         </div>
