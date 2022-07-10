@@ -1,10 +1,12 @@
 import { FC, FormEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { ILocation } from "../../models/ILocation";
 import { handleLoginError, handlePasswordError, login } from "../../store/reducers/UserSlice";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+export interface CustomizedLocation {
+    from: string;
+}
 interface AuthProps {
     title: string
 }
@@ -17,7 +19,7 @@ export const Auth: FC<AuthProps> = ({ title }) => {
     const [email, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [authType, setAuthType] = useState(false);
-    const { from } = location?.state as ILocation;
+    const { from } = location?.state as CustomizedLocation;
 
     useEffect(() => {
         if (title === "login") {
