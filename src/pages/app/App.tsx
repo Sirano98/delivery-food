@@ -6,6 +6,7 @@ import { Cart } from '../../components/cart/Cart';
 import { Layout } from '../../components/layout/Layout';
 import { Modal } from '../../components/modal/Modal';
 import { RequireAuth } from '../../hoc/RequireAuth';
+import { Wrapper } from '../../hoc/Wrapper';
 import { useAppDispatch } from '../../hooks/hooks';
 import { login, logout } from '../../store/reducers/UserSlice';
 import { DishesPage } from '../dishesPage/DishesPage';
@@ -15,6 +16,7 @@ import './App.css';
 
 interface CustomizedState {
     background: string;
+    from?: string;
 }
 
 function App() {
@@ -34,13 +36,10 @@ function App() {
                     token: user.refreshToken
                 }))
 
-
             } else {
-
                 signOut(auth).then(() => {
                     dispatch(logout())
                 })
-
             }
         });
     }, [dispatch])
@@ -52,16 +51,21 @@ function App() {
                     <Route index element={<RestauransPage />} />
                     <Route path='menu' element={
                         <RequireAuth>
-                            <DishesPage />
+                            <Wrapper>
+                                <DishesPage />
+                            </Wrapper>
                         </RequireAuth>
                     } />
                     <Route path='search-results' element={
                         <RequireAuth>
-                            <SearchPage />
+                            <Wrapper>
+                                <SearchPage />
+                            </Wrapper>
                         </RequireAuth>
                     } />
                 </Route>
             </Routes>
+
             {background && (
                 <Routes>
                     <Route path="login" element={

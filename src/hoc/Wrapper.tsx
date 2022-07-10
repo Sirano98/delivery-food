@@ -9,8 +9,14 @@ export const Wrapper: FC<WrapperProps> = ({ children }) => {
     const location = useLocation();
 
     useLayoutEffect(() => {
-        document.documentElement.scrollTo(0, 0);
-    }, [location.pathname]);
+
+        console.log(location);
+        if (!location.state) {
+            console.log(location);
+            document.documentElement.scrollTo(0, 0);
+        }
+
+    }, [location.state]);
 
     return children;
 }

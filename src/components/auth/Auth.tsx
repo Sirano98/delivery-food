@@ -10,7 +10,7 @@ interface AuthProps {
 }
 
 export const Auth: FC<AuthProps> = ({ title }) => {
-    const { loginError, passwordError } = useAppSelector(state => state.user);
+    const { loginError, passwordError, userData } = useAppSelector(state => state.user);
     const dispatch = useAppDispatch();
     const location = useLocation();
     const navigate = useNavigate();
@@ -25,10 +25,17 @@ export const Auth: FC<AuthProps> = ({ title }) => {
         } else {
             setAuthType(false)
         }
+
+        if (userData.email) {
+            console.log(location);
+
+            navigate(from)
+        }
+
         return () => {
             handleError(null, null);
         }
-    }, [title])
+    }, [title, userData])
 
     const handleAuth = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
