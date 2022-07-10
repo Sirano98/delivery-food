@@ -36,7 +36,7 @@ export const Header: FC = () => {
                                 </Link>
                                 <button className="button button-primary button-out" onClick={handleLogOut}>
                                     <span className="button-text">Log out</span>
-                                    <span className="button-out-svg"></span>
+                                    <span className="button-out-svg button-svg"></span>
                                 </button>
                             </>
                         ) : (

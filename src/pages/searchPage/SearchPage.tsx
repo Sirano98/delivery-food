@@ -1,5 +1,4 @@
 import { FC, useEffect } from "react";
-import { Error } from "../../components/error/Error";
 import List from "../../components/list/List";
 import { Loader } from "../../components/loader/Loader";
 import { MenuCard } from "../../components/menuCard/menuCard";

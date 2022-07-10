@@ -643,15 +643,28 @@ button {
         padding: 5px 12px;
     }
 
-    .button-out-svg {
+    .button-svg {
         width: 24px;
         height: 24px;
         background-color: #fff;
-        -webkit-mask: url(../public/img/icon/logout.svg) no-repeat 50% 50%;
-        mask: url(../public/img/icon/logout.svg) no-repeat 50% 50%;
         background-repeat: no-repeat;
         -webkit-mask-size: 20px;
         mask-size: 20px;
+    }
+
+    .button-primary:hover .buttont-svg {
+        background-color: #595959;
+    }
+
+    .button-out-svg {
+        -webkit-mask: url(../public/img/icon/logout.svg) no-repeat 50% 50%;
+        mask: url(../public/img/icon/logout.svg) no-repeat 50% 50%;
+
+    }
+
+    .button-back-svg {
+        -webkit-mask: url(../public/img/icon/back-arrow.svg) no-repeat 50% 50%;
+        mask: url(../public/img/icon/back-arrow.svg) no-repeat 50% 50%;
     }
 
     .promo {

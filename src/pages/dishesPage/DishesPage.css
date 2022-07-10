@@ -1,0 +1,7 @@
+.section-heading {
+    justify-content: space-between;
+}
+
+.heading-content {
+    display: flex;
+}
