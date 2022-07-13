@@ -23,7 +23,9 @@ export const CartItem: FC<CartItemProps> = ({ dish }) => {
                 <button className="counter-button" onClick={() => handelCartActions(decreaseCart)}>-</button>
                 <span className="counter">{quantity}</span>
                 <button className="counter-button" onClick={() => handelCartActions(addToCart)}>+</button>
-                <button className="counter-button" onClick={() => handelCartActions(removeFromCart)}>&times;</button>
+                <button className="counter-button counter-button-delete" onClick={() => handelCartActions(removeFromCart)}>
+                    <span className="counter-button-delete-svg"></span>
+                </button>
             </div>
         </div>
     )

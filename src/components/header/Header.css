@@ -45,6 +45,7 @@
 
 .input-search {
     width: 300px;
+    outline: none;
 }
 
 .search-label {

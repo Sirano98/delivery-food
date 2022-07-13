@@ -5,3 +5,7 @@
 .heading-content {
     display: flex;
 }
+
+.button-back {
+    margin: 0px;
+}

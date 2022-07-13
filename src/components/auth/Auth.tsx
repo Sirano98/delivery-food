@@ -28,9 +28,7 @@ export const Auth: FC<AuthProps> = ({ title }) => {
             setAuthType(false)
         }
 
-        if (userData.email) {
-            console.log(location);
-
+        if (userData.email && from) {
             navigate(from)
         }
 

@@ -271,8 +271,9 @@ button {
     width: 80%;
     background: transparent;
     color: #ff0000;
-    top: -32px;
+    top: -20px;
     left: 79px;
+    margin: 0px;
     animation: showError 1s;
 }
 
@@ -385,6 +386,23 @@ button {
     color: #40a9ff;
 }
 
+.counter-button-delete {
+    margin-left: 10px
+}
+
+.counter-button-delete-svg {
+    width: 20px;
+    height: 20px;
+    background-color: #40a9ff;
+    -webkit-mask: url("../public/img/icon/delete.svg") no-repeat 50% 50%;
+    mask: url("../public/img/icon/delete.svg") no-repeat 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.counter-button-delete:hover .counter-button-delete-svg {
+    background-color: #fff;
+}
+
 .counter-button:hover {
     background: #40a9ff;
     border: 1px solid #ffffff;
@@ -458,7 +476,11 @@ button {
 
 @media (max-width: 992px) {
     .container {
-        max-width: 750px;
+        margin: 0px 15px;
+    }
+
+    .promo {
+        margin-bottom: 35px;
     }
 
     .pizza {
@@ -487,7 +509,7 @@ button {
     }
 
     .card {
-        flex-basis: 49%;
+        flex-basis: 45%;
     }
 
     .footer-link {
@@ -496,9 +518,6 @@ button {
 }
 
 @media (max-width: 768px) {
-    .container {
-        max-width: 560px;
-    }
 
     .card-info {
         flex-wrap: wrap;
@@ -514,6 +533,7 @@ button {
 
     .card-text {
         min-height: 290px;
+        padding: 20px 23px 20px;
     }
 
     .card-price-bold {
@@ -550,9 +570,31 @@ button {
     }
 }
 
+@media (max-width:626px) and (min-width: 578px) {
+    .button-add-cart {
+        margin-right: 0px;
+    }
+
+    .card-price-bold {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .food-row {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 578px) {
+
+    body {
+        padding-top: 20px;
+    }
+
     .container {
         width: 90%;
+        margin: auto;
     }
 
     .address {
@@ -580,6 +622,13 @@ button {
 
     .section-title {
         font-size: 20px;
+        margin-right: 15px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
     }
 
     .card {
@@ -673,6 +722,33 @@ button {
 
     .section-heading {
         flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .input-search {
+        width: 270px;
+    }
+
+    .modal-body {
+        padding-right: 0px;
+    }
+
+    .label-auth {
+        margin: 15px 30px 35px 30px;
+    }
+
+    .modal-dialog {
+        max-width: 400px;
+    }
+
+    .error-message-auth {
+        top: 50px;
+        left: 0px;
+        width: 101%;
+    }
+
+    .modal-pricetag {
+        padding: 15px 5px
     }
 
     .footer-block {
@@ -693,5 +769,18 @@ button {
 
     .footer-link:not(:last-child) {
         margin-right: 0;
+    }
+}
+
+@media (max-width: 370px) {
+    .modal-dialog {
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width:324px) {
+    .heading-content {
+        flex-direction: column;
+        margin-bottom: 10px;
     }
 }
