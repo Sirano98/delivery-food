@@ -1,16 +1,19 @@
 import { FC } from "react";
+import { NavLink } from "react-router-dom";
 
 export const Footer: FC = () => {
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-block">
-                    <img src="img/icon/logo.svg" alt="logo" className="logo footer-logo" />
+                    <NavLink className="logo" to="/">
+                        <img src="img/icon/logo.svg" alt="Logo" />
+                    </NavLink>
                     <nav className="footer-nav">
-                        <p className="footer-link">Ресторанам </p>
-                        <p className="footer-link">Курьерам</p>
-                        <p className="footer-link">Пресс-центр</p>
-                        <p className="footer-link">Контакты</p>
+                        <p className="footer-link">Restaurants</p>
+                        <p className="footer-link">Couriers</p>
+                        <p className="footer-link">Press center</p>
+                        <p className="footer-link">Contacts</p>
                     </nav>
                     <div className="social-links">
                         <a
